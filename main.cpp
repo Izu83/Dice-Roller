@@ -21,7 +21,66 @@ enum Dice_6
     
 };
 
-
+void animation()
+{
+    for(size_t i = 1;i<=3;i++)
+    {
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|               |\n"
+                    << "|       *       |\n"
+                    << "|               |\n"
+                    << "|               |\n"
+                    << "\\---------------/\n";
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|    *          |\n"
+                    << "|               |\n"
+                    << "|          *    |\n"
+                    << "|               |\n"
+                    << "\\---------------/\n";
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|    *          |\n"
+                    << "|       *       |\n"
+                    << "|          *    |\n"
+                    << "|               |\n"
+                    << "\\---------------/\n";
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|   *       *   |\n"
+                    << "|               |\n"
+                    << "|   *       *   |\n"
+                    << "|               |\n"
+                    << "\\---------------/\n";            
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|   *       *   |\n"
+                    << "|       *       |\n"
+                    << "|   *       *   |\n"
+                    << "|               |\n"
+                        << "\\---------------/\n";
+        sleep(0.75);
+        system("cls");
+        std::cout   << "/---------------\\\n"
+                    << "|               |\n"
+                    << "|   *       *   |\n"
+                    << "|   *       *   |\n"
+                    << "|   *       *   |\n"
+                    << "|               |\n"
+                    << "\\---------------/\n";
+    }
+}
 
 void num_to_dice(Dice_6 &dice, int &num)
 {
@@ -66,21 +125,23 @@ int main()
         std::cout << "\nOk, bye!!!";
         return 0;
     }
+    else if(*y_n_choice != "N" && *y_n_choice!= "n" && *y_n_choice!= "y" && *y_n_choice!= "Y")
+    {
+        std::cout << "Invalid option!\n";
+        system("pause");
+        goto START;
+    }
     system("cls");
     std::cout << "----------------------------------------------\n";
     // countdown
-    for(size_t i = 3; i > 0; i--)
-    {
-        std::cout << "The dice will roll after: " << i << " seconds\n";
-        sleep(1);
-    }
+    animation();
+    system("cls");
+    
     // random number generator
     int rand_num = random_num(1, 6);
+    // int rand_num = 6;
     num_to_dice(dice, rand_num);
     // display dice
-    std::cout << "----------------------------------------------\n";
-    std::cout << "Dice turned out to be: " << dice << std::endl;
-    std::cout << "\n\n\n";
     switch(dice)
     {
         case D1:
@@ -139,6 +200,7 @@ int main()
         break;
 
     }
+    std::cout << "Dice turned out to be: " << dice << std::endl;
     std::cout << "\n\n\n";
     std::cout << "----------------------------------------------\n";
     system("pause");
